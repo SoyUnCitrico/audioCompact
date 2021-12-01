@@ -1,5 +1,5 @@
-#N canvas 931 296 996 552 12;
-#N canvas 331 391 520 419 stereoPlayer 0;
+#N canvas 588 231 996 552 12;
+#N canvas 117 237 520 419 stereoPlayer 1;
 #X obj 42 51 soundfiler;
 #N canvas 0 50 491 250 (subpatch) 0;
 #X array audioLeft 359856 float 2;
@@ -30,22 +30,22 @@
 #X obj 79 85 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 79 110 stop;
-#N canvas 1131 207 973 585 mixer 1;
-#X obj 54 316 vsl 15 128 0 1 0 0 level1 empty Channel_1 0 -9 0 10 -203904
--1 -1 2700 1;
-#X obj 92 321 vu 15 120 vu1 empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 55 270 hsl 60 20 0 1 0 0 pan1 empty Pan_1 -2 -8 0 10 -262144
--1 -1 3100 0;
-#X obj 749 306 vsl 15 128 0 1 0 0 masterVol empty Master 0 -9 0 10
--203904 -1 -1 9600 1;
-#X obj 849 308 vu 15 120 vuMasterR MasterR -1 -8 0 10 -66577 -1 0 0
+#N canvas 518 394 1064 457 mixer 1;
+#X obj 35 231 vsl 15 128 0 1 0 0 level1 empty Channel_1 0 -9 0 10 -203904
+-1 -1 8000 1;
+#X obj 65 241 vu 15 120 vu1 empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 43 174 hsl 60 20 0 1 0 0 pan1 empty Pan_1 -2 -8 0 10 -204786
+-1 -1 3200 0;
+#X obj 851 219 vsl 15 128 0 1 0 0 masterVol empty Master 0 -9 0 10
+-203904 -1 -1 8200 1;
+#X obj 951 221 vu 15 120 vuMasterR MasterR -1 -8 0 10 -66577 -1 0 0
 ;
-#X obj 802 307 vu 15 120 vuMasterL MasterL -1 -8 0 10 -66577 -1 1 0
+#X obj 904 220 vu 15 120 vuMasterL MasterL -1 -8 0 10 -66577 -1 1 0
 ;
-#X obj 55 224 hsl 60 20 0 1 0 0 rev1 empty Reverb_1 -2 -8 0 10 -262144
--1 -1 2200 0;
-#X obj 598 303 vsl 15 128 0 1 0 0 revReturn empty Reverb 0 -9 0 10
--203904 -1 -1 0 1;
+#X obj 43 128 hsl 60 20 0 1 0 0 rev1 empty Reverb_1 -2 -8 0 10 -232576
+-1 -1 3500 0;
+#X obj 643 235 vsl 15 128 0 1 0 0 revReturn empty Reverb 0 -9 0 10
+-203904 -1 -1 2900 1;
 #N canvas 1185 236 373 339 chan1 0;
 #X obj 37 26 catch~ ch1;
 #X obj 35 81 *~;
@@ -74,7 +74,7 @@
 #X connect 10 0 9 1;
 #X connect 11 0 12 0;
 #X connect 13 0 11 1;
-#X restore 56 165 pd chan1;
+#X restore 44 69 pd chan1;
 #N canvas 0 50 450 300 revFX 0;
 #X obj 30 37 catch~ RevFX;
 #X obj 31 73 rev2~ 100 85 3000 20;
@@ -90,7 +90,7 @@
 #X connect 3 0 5 0;
 #X connect 4 0 2 1;
 #X connect 4 0 3 1;
-#X restore 582 253 pd revFX;
+#X restore 627 185 pd revFX;
 #N canvas 0 50 355 282 master 0;
 #X obj 45 18 catch~ masterL;
 #X obj 159 18 catch~ masterR;
@@ -118,14 +118,14 @@
 #X connect 8 0 12 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 0;
-#X restore 769 246 pd master;
-#X obj 174 316 vsl 15 128 0 1 0 0 level2 empty Channel_2 0 -9 0 10
--203904 -1 -1 6800 1;
-#X obj 212 321 vu 15 120 vu2 empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 175 270 hsl 60 20 0 1 0 0 pan2 empty Pan_2 -2 -8 0 10 -262144
--1 -1 3000 0;
-#X obj 175 224 hsl 60 20 0 1 0 0 rev2 empty Reverb_2 -2 -8 0 10 -262144
--1 -1 0 0;
+#X restore 871 159 pd master;
+#X obj 190 230 vsl 15 128 0 1 0 0 level2 empty Channel_2 0 -9 0 10
+-203904 -1 -1 6500 1;
+#X obj 228 235 vu 15 120 vu2 empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 191 184 hsl 60 20 0 1 0 0 pan2 empty Pan_2 -2 -8 0 10 -204786
+-1 -1 2700 0;
+#X obj 191 138 hsl 60 20 0 1 0 0 rev2 empty Reverb_2 -2 -8 0 10 -232576
+-1 -1 1700 0;
 #N canvas 1185 236 373 243 chan2 0;
 #X obj 35 81 *~;
 #X obj 74 79 pow 2;
@@ -154,15 +154,104 @@
 #X connect 10 0 8 1;
 #X connect 11 0 0 0;
 #X connect 12 0 1 0;
-#X restore 177 162 pd chan2;
+#X restore 193 76 pd chan2;
+#X obj 326 233 vsl 15 128 0 1 0 0 level3 empty Channel_3 0 -9 0 10
+-203904 -1 -1 7700 1;
+#X obj 356 243 vu 15 120 vu3 empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 334 176 hsl 60 20 0 1 0 0 pan3 empty Pan_3 -2 -8 0 10 -204786
+-1 -1 4700 0;
+#X obj 335 131 hsl 60 20 0 1 0 0 rev3 empty Reverb_3 -2 -8 0 10 -232576
+-1 -1 3900 0;
+#X obj 481 232 vsl 15 128 0 1 0 0 level4 empty Channel_4 0 -9 0 10
+-203904 -1 -1 9000 1;
+#X obj 519 237 vu 15 120 vu4 empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 482 186 hsl 60 20 0 1 0 0 pan4 empty Pan_4 -2 -8 0 10 -204786
+-1 -1 4600 0;
+#X obj 482 140 hsl 60 20 0 1 0 0 rev4 empty Reverb_4 -2 -8 0 10 -232576
+-1 -1 4500 0;
+#N canvas 1185 236 373 339 chan3 0;
+#X obj 35 81 *~;
+#X obj 74 79 pow 2;
+#X obj 35 122 env~;
+#X obj 35 146 - 95;
+#X obj 99 142 throw~ masterL;
+#X obj 139 167 throw~ masterR;
+#X obj 98 118 panner;
+#X floatatom 137 89 5 0 0 0 - pan3 -;
+#X obj 36 226 *~;
+#X obj 35 256 throw~ RevFX;
+#X floatatom 56 199 5 0 0 0 - rev3 -;
+#X obj 37 26 catch~ ch3;
+#X obj 74 53 r level3;
+#X obj 35 170 s vu3;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 13 0;
+#X connect 6 0 4 0;
+#X connect 6 1 5 0;
+#X connect 7 0 6 1;
+#X connect 8 0 9 0;
+#X connect 10 0 8 1;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X restore 335 71 pd chan3;
+#N canvas 1185 236 373 243 chan4 0;
+#X obj 35 81 *~;
+#X obj 74 79 pow 2;
+#X obj 35 122 env~;
+#X obj 35 146 - 95;
+#X obj 99 142 throw~ masterL;
+#X obj 139 167 throw~ masterR;
+#X obj 98 118 panner;
+#X floatatom 137 89 5 0 0 0 - pan4 -;
+#X obj 36 226 *~;
+#X obj 35 256 throw~ RevFX;
+#X floatatom 56 199 5 0 0 0 - rev4 -;
+#X obj 37 26 catch~ ch4;
+#X obj 75 52 r level4;
+#X obj 35 170 s vu4;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 13 0;
+#X connect 6 0 4 0;
+#X connect 6 1 5 0;
+#X connect 7 0 6 1;
+#X connect 8 0 9 0;
+#X connect 10 0 8 1;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X restore 484 78 pd chan4;
+#X obj 734 237 vsl 15 128 0 1 0 0 revReturn empty Reverb 0 -9 0 10
+-203904 -1 -1 0 1;
+#N canvas 0 25 309 300 DelFX 0;
+#X obj 31 73 rev2~ 100 85 3000 20;
+#X obj 98 113 *~;
+#X obj 33 111 *~;
+#X floatatom 155 122 5 0 0 0 - revReturn -;
+#X obj 32 140 throw~ masterL;
+#X obj 102 163 throw~ masterR;
+#X obj 30 37 catch~ DelFX;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 1;
+#X connect 3 0 2 1;
+#X connect 6 0 0 0;
+#X restore 732 161 pd DelFX;
 #X restore 548 462 pd mixer;
-#X obj 57 291 throw~ ch1;
 #X obj 257 85 loadbang;
 #X obj 286 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X msg 292 159 stop;
 #X obj 256 286 throw~ ch2;
-#N canvas 1286 293 520 419 stereoPlayer2 0;
+#N canvas 1286 293 520 419 stereoPlayer2 1;
 #N canvas 0 50 450 250 (subpatch) 0;
 #X array audioLeft2 698544 float 2;
 #X coords 0 1 698544 -1 200 140 1 0 0;
@@ -186,21 +275,22 @@
 #X restore 255 186 pd stereoPlayer2;
 #X msg 257 112 read -resize ambientSamples/Kick.wav audioLeft2 audioRight2
 , f 64;
-#X obj 575 38 bng 50 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+#X obj 575 39 bng 50 250 50 0 empty empty empty 17 7 0 10 -4034 -1
 -1;
 #X obj 639 39 bng 50 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
-#X connect 0 0 6 0;
+#X obj 57 291 throw~ ch4;
+#X connect 0 0 14 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 0 1;
 #X connect 4 0 0 1;
-#X connect 7 0 12 0;
-#X connect 8 0 11 1;
-#X connect 9 0 11 1;
+#X connect 6 0 11 0;
+#X connect 7 0 10 1;
+#X connect 8 0 10 1;
+#X connect 10 0 9 0;
 #X connect 11 0 10 0;
-#X connect 12 0 11 0;
+#X connect 12 0 7 0;
+#X connect 12 0 3 0;
 #X connect 13 0 8 0;
-#X connect 13 0 3 0;
-#X connect 14 0 9 0;
-#X connect 14 0 4 0;
+#X connect 13 0 4 0;
