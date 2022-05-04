@@ -1,29 +1,29 @@
-#N canvas 524 1 1097 629 12;
+#N canvas 269 1 1097 629 12;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array \$0-pitches 32 float 3;
-#A 0 52 55 57 55 62 60 62 64 56 58 60 62 64 66 68 70 40 42 44 46 48
-50 52 54 56 58 60 62 64 66 68 70;
-#X coords 0 127 32 0 320 256 1 0 0;
-#X restore 624 56 graph;
+#X array \$0-pitches 32 float 3 black black;
+#A 0 40 0 42 0 44 0 40 0 42 0 44 0 64 66 68 70 40 42 44 46 48 50 52
+54 56 58 60 62 64 66 68 70;
+#X coords 0 127 32 0 320 256 1;
+#X restore 620 60 graph;
 #X msg 601 462 60 62 64 65 40 42 44 46 50 52 54 56 60 60 72 60;
 #X obj 28 80 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
-0 1;
+1 1;
 #X obj 86 140 metro 0.25 120 permin;
 #X msg 136 102 tempo \$1 permin;
-#X floatatom 135 76 5 0 360 0 - - - 0;
+#X floatatom 135 76 5 0 360 0 - - -, f 5;
 #X text 182 76 BPM;
 #X obj 86 168 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
-#X floatatom 86 234 5 0 0 0 - - - 0;
+#X floatatom 86 234 5 0 0 0 - - -, f 5;
 #X obj 86 202 f;
 #X obj 132 203 + 1;
 #X msg 284 162 2;
 #X msg 309 187 4;
 #X msg 335 162 8;
 #X msg 360 187 16;
-#X floatatom 284 80 5 0 0 0 - - - 0;
+#X floatatom 284 80 5 0 0 0 - - -, f 5;
 #X obj 86 305 hradio 15 1 0 32 empty empty empty 0 -8 0 10 #fcfcfc
-#000000 #000000 0;
+#000000 #000000 11;
 #X obj 86 331 array get \$0-pitches;
 #X obj 86 495 outlet;
 #X text 330 78 Steps;
@@ -34,7 +34,7 @@
 #X text 75 519 MIDI Note;
 #X obj 86 365 trigger f f;
 #X obj 86 424 spigot;
-#X floatatom 86 452 5 0 0 0 - - - 0;
+#X floatatom 86 452 5 0 0 0 - - -, f 5;
 #X obj 141 398 > 0;
 #X obj 50 470 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
@@ -46,16 +46,14 @@
 #X obj 601 510 r pitchSequencer;
 #X msg 399 161 32;
 #X obj 284 134 select 2 4 8 16 32;
-#X msg 601 382 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 40 42
-44 46 48 50 52 54 56 58 60 62 64 66 68 70;
 #X obj 255 461 array get \$0-pitches;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array \$0-stored1 32 float 3;
+#X array \$0-stored1 32 float 3 black black;
 #A 0 40 42 29.2695 31.2539 90.7852 93.7617 95.7461 98.7227 98.7227
 97.2344 92.7695 87.3125 84.3359 71.9336 61.5156 57.0508 45.6406 39.1914
 35.2227 33.7344 24.3086 19.8438 17.3633 16.3711 16.3711 17.3633 19.3477
 21.8281 28.2773 35.2227 43.1602 42.168;
-#X coords 0 127 32 0 320 256 1 0 0;
+#X coords 0 127 32 0 320 256 1;
 #X restore 632 635 graph;
 #X obj 255 433 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
@@ -71,24 +69,23 @@
 #X obj 78 32 inlet;
 #X obj 83 80 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
+#X msg 601 382 40 42 44 40 42 44 52 54 56 58 60 62 64 66 68 70 40 42
+44 46 48 50 52 54 56 58 60 62 64 66 68 70;
 #X connect 1 0 22 0;
 #X connect 2 0 3 0;
 #X connect 3 0 7 0;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
 #X connect 7 0 9 0;
-#X connect 8 0 48 0;
+#X connect 8 0 47 0;
 #X connect 9 0 8 0;
 #X connect 9 0 10 0;
 #X connect 10 0 9 1;
-#X connect 11 0 48 1;
-#X connect 12 0 48 1;
-#X connect 13 0 48 1;
-#X connect 14 0 48 1;
 #X connect 15 0 37 0;
+#X connect 15 0 47 1;
 #X connect 16 0 17 0;
 #X connect 17 0 25 0;
-#X connect 21 0 38 0;
+#X connect 21 0 51 0;
 #X connect 25 0 26 0;
 #X connect 25 1 28 0;
 #X connect 26 0 27 0;
@@ -100,20 +97,19 @@
 #X connect 32 0 15 0;
 #X connect 33 0 34 0;
 #X connect 35 0 22 0;
-#X connect 36 0 48 1;
 #X connect 37 0 11 0;
 #X connect 37 1 12 0;
 #X connect 37 2 13 0;
 #X connect 37 3 14 0;
 #X connect 37 4 36 0;
-#X connect 38 0 22 0;
-#X connect 39 0 42 0;
-#X connect 41 0 39 0;
-#X connect 43 0 41 0;
-#X connect 44 0 46 0;
-#X connect 45 0 44 0;
-#X connect 46 0 47 0;
-#X connect 48 0 16 0;
-#X connect 49 0 9 0;
-#X connect 50 0 51 0;
-#X connect 51 0 49 0;
+#X connect 38 0 41 0;
+#X connect 40 0 38 0;
+#X connect 42 0 40 0;
+#X connect 43 0 45 0;
+#X connect 44 0 43 0;
+#X connect 45 0 46 0;
+#X connect 47 0 16 0;
+#X connect 48 0 9 0;
+#X connect 49 0 50 0;
+#X connect 50 0 48 0;
+#X connect 51 0 22 0;
