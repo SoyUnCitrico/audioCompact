@@ -1,43 +1,44 @@
 #N canvas 269 1 1097 629 12;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array \$0-pitches 32 float 3 black black;
-#A 0 40 0 42 0 44 0 40 0 42 0 44 0 64 66 68 70 40 42 44 46 48 50 52
-54 56 58 60 62 64 66 68 70;
+#X array \$0-pitches 32 float 3;
+#A 0 73.4219 60.0273 73.4219 65.4844 73.4219 77.3906 63.9961 83.8398
+73.4219 73.4219 53.5781 53.5781 20.3398 20.3398 68 70 40 42 44 46 48
+50 52 54 56 58 60 62 64 66 68 70;
 #X coords 0 127 32 0 320 256 1;
 #X restore 620 60 graph;
 #X msg 601 462 60 62 64 65 40 42 44 46 50 52 54 56 60 60 72 60;
-#X obj 28 80 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
-1 1;
+#X obj 28 80 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
 #X obj 86 140 metro 0.25 120 permin;
 #X msg 136 102 tempo \$1 permin;
-#X floatatom 135 76 5 0 360 0 - - -, f 5;
+#X floatatom 135 76 5 0 360 0 - - -;
 #X text 182 76 BPM;
-#X obj 86 168 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X floatatom 86 234 5 0 0 0 - - -, f 5;
+#X obj 86 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 86 234 5 0 0 0 - - -;
 #X obj 86 202 f;
 #X obj 132 203 + 1;
 #X msg 284 162 2;
 #X msg 309 187 4;
 #X msg 335 162 8;
 #X msg 360 187 16;
-#X floatatom 284 80 5 0 0 0 - - -, f 5;
-#X obj 86 305 hradio 15 1 0 32 empty empty empty 0 -8 0 10 #fcfcfc
-#000000 #000000 11;
+#X floatatom 284 80 5 0 0 0 - - -;
+#X obj 86 305 hradio 15 1 0 32 empty empty empty 0 -8 0 10 -262144
+-1 -1 7;
 #X obj 86 331 array get \$0-pitches;
 #X obj 86 495 outlet;
 #X text 330 78 Steps;
 #X text -5 56 On / Off;
-#X obj 601 343 loadbang;
+#X obj 474 344 loadbang;
 #X obj 601 536 array set \$0-pitches;
 #X text 607 442 Presets;
 #X text 75 519 MIDI Note;
 #X obj 86 365 trigger f f;
 #X obj 86 424 spigot;
-#X floatatom 86 452 5 0 0 0 - - -, f 5;
+#X floatatom 86 452 5 0 0 0 - - -;
 #X obj 141 398 > 0;
-#X obj 50 470 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 50 470 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 28 31 inlet;
 #X obj 135 39 inlet;
 #X obj 284 42 inlet;
@@ -48,27 +49,26 @@
 #X obj 284 134 select 2 4 8 16 32;
 #X obj 255 461 array get \$0-pitches;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array \$0-stored1 32 float 3 black black;
-#A 0 40 42 29.2695 31.2539 90.7852 93.7617 95.7461 98.7227 98.7227
-97.2344 92.7695 87.3125 84.3359 71.9336 61.5156 57.0508 45.6406 39.1914
-35.2227 33.7344 24.3086 19.8438 17.3633 16.3711 16.3711 17.3633 19.3477
-21.8281 28.2773 35.2227 43.1602 42.168;
+#X array \$0-stored1 32 float 3;
+#A 0 73.4219 60.0273 73.4219 65.4844 73.4219 77.3906 63.9961 83.8398
+73.4219 73.4219 53.5781 53.5781 20.3398 20.3398 68 70 40 42 44 46 48
+50 52 54 56 58 60 62 64 66 68 70;
 #X coords 0 127 32 0 320 256 1;
 #X restore 632 635 graph;
-#X obj 255 433 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 255 433 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X obj 255 495 array set \$0-stored1;
 #X msg 255 397 Save;
-#X obj 410 433 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 410 433 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X msg 410 397 Load;
 #X obj 410 461 array get \$0-stored1;
 #X obj 410 495 array set \$0-pitches;
 #X obj 86 272 % 32;
 #X msg 39 165 0;
 #X obj 78 32 inlet;
-#X obj 83 80 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 83 80 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X msg 601 382 40 42 44 40 42 44 52 54 56 58 60 62 64 66 68 70 40 42
 44 46 48 50 52 54 56 58 60 62 64 66 68 70;
 #X connect 1 0 22 0;
@@ -81,11 +81,14 @@
 #X connect 9 0 8 0;
 #X connect 9 0 10 0;
 #X connect 10 0 9 1;
+#X connect 11 0 47 1;
+#X connect 12 0 47 1;
+#X connect 13 0 47 1;
+#X connect 14 0 47 1;
 #X connect 15 0 37 0;
-#X connect 15 0 47 1;
 #X connect 16 0 17 0;
 #X connect 17 0 25 0;
-#X connect 21 0 51 0;
+#X connect 21 0 44 0;
 #X connect 25 0 26 0;
 #X connect 25 1 28 0;
 #X connect 26 0 27 0;
@@ -97,6 +100,7 @@
 #X connect 32 0 15 0;
 #X connect 33 0 34 0;
 #X connect 35 0 22 0;
+#X connect 36 0 47 1;
 #X connect 37 0 11 0;
 #X connect 37 1 12 0;
 #X connect 37 2 13 0;
